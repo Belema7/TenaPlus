@@ -1,0 +1,46 @@
+tenapulse/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   ├── TodoItem.jsx
+│   │   └── ReminderCard.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── MedicineInput.jsx
+│   │   ├── Login.jsx
+│   │   └── Signup.jsx
+│   │
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   └── useTodos.js
+│   │
+│   ├── firebase/
+│   │   └── config.js
+│   │
+│   ├── utils/
+│   │   ├── aiHandler.js      // For calling AI API
+│   │   ├── reminders.js      // For scheduling reminders
+│   │   └── validators.js
+│   │
+│   ├── styles/
+│   │   └── globals.css
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── router.jsx
+│
+├── package.json
+├── tailwind.config.js
+└── README.md
