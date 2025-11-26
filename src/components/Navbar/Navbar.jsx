@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
-    
+import { Menu, X } from 'lucide-react';
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -13,27 +14,31 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Reusable class generators
+  // Reusable class generators with health colors
   const navLinkClasses = ({ isActive }) =>
-    `px-1 py-2 text-sm font-medium transition-all duration-200 ${
+    `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
       isActive
-        ? 'text-white border-b-2 border-blue-500'
-        : 'text-gray-300 hover:text-white'
+        ? 'bg-emerald-500 text-white shadow-lg'
+        : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
     }`;
 
-  const mobileNavLinkClasses =
-    'block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-900 rounded-md transition-colors';
+  const mobileNavLinkClasses = ({ isActive }) =>
+    `block px-4 py-3 text-base font-medium rounded-md transition-colors ${
+      isActive
+        ? 'bg-emerald-500 text-white'
+        : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
+    }`;
 
   const authButtonClasses = ({ isActive }) =>
     `px-6 py-2 rounded-md text-sm font-medium border transition-all duration-200 ${
       isActive
-        ? 'text-white border-blue-500 bg-blue-500/10'
-        : 'text-gray-300 border-gray-600 hover:text-white hover:border-gray-400'
+        ? 'text-emerald-700 border-emerald-500 bg-emerald-50'
+        : 'text-emerald-600 border-emerald-300 hover:text-emerald-800 hover:border-emerald-400 hover:bg-emerald-50'
     }`;
 
   const signupButtonClasses = ({ isActive }) =>
-    `px-6 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-blue-600 to-blue-700 text-white border border-blue-500 hover:from-blue-700 hover:to-blue-800 shadow-md transition-all duration-200 ${
-      isActive ? 'ring-2 ring-blue-400 ring-opacity-60' : ''
+    `px-6 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white border border-emerald-400 hover:from-emerald-600 hover:to-teal-600 shadow-md transition-all duration-200 ${
+      isActive ? 'ring-2 ring-emerald-300 ring-opacity-60' : ''
     }`;
 
   const navItems = [
@@ -43,7 +48,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-black shadow-lg border-b border-gray-800 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-emerald-50 to-teal-50 shadow-lg border-b border-emerald-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -55,7 +60,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <div className="flex items-baseline space-x-6">
+            <div className="flex items-baseline space-x-4">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
@@ -83,19 +88,15 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-900 transition-colors"
+              className="p-2 rounded-md text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X className="h-6 w-6" />
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -109,33 +110,31 @@ const Navbar = () => {
           isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 pt-4 pb-6 space-y-1 bg-black border-t border-gray-800">
+        <div className="px-4 pt-4 pb-6 space-y-1 bg-gradient-to-b from-emerald-50 to-teal-50 border-t border-emerald-200">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `${mobileNavLinkClasses} ${isActive ? 'text-white bg-gray-900' : ''}`
-              }
+              className={mobileNavLinkClasses}
               end
             >
               {item.label}
             </NavLink>
           ))}
 
-          <div className="pt-4 space-y-3 border-t border-gray-800 mt-4">
+          <div className="pt-4 space-y-3 border-t border-emerald-200 mt-4">
             <NavLink
               to="/login"
               onClick={closeMobileMenu}
-              className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-900 rounded-md text-center border border-gray-700"
+              className="block px-4 py-3 text-base font-medium text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-md text-center border border-emerald-300 transition-colors"
             >
               Login
             </NavLink>
             <NavLink
               to="/signup"
               onClick={closeMobileMenu}
-              className="block px-4 py-3 text-base font-medium text-white text-center bg-gradient-to-r from-blue-600 to-blue-700 rounded-md border border-blue-500 hover:from-blue-700 hover:to-blue-800 shadow-md transition-all"
+              className="block px-4 py-3 text-base font-medium text-white text-center bg-gradient-to-r from-emerald-500 to-teal-500 rounded-md border border-emerald-400 hover:from-emerald-600 hover:to-teal-600 shadow-md transition-all"
             >
               Sign Up
             </NavLink>

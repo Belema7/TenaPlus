@@ -1,12 +1,13 @@
 import React from 'react'
 import LayOut from '../components/LayOut/LayOut'
 import Footer from '../components/Footer/Footer'
-import { 
-  Heart, 
-  Calendar, 
-  Bell, 
-  Activity, 
-  Stethoscope, 
+import logo from '../assets/images/logo.jpg'
+import {
+  Heart,
+  Calendar,
+  Bell,
+  Activity,
+  Stethoscope,
   ArrowRight,
   PlayCircle,
   CheckCircle2
@@ -37,7 +38,7 @@ const Home = () => {
                     </span>
                   </h1>
                   <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                    Get personalized daily routines, smart medication reminders, and AI-powered health guidance 
+                    Get personalized daily routines, smart medication reminders, and AI-powered health guidance
                     to support your recovery and maintain your wellbeing.
                   </p>
                 </div>
@@ -55,15 +56,23 @@ const Home = () => {
               </div>
 
               {/* Right Content - Hero Image/Illustration */}
+
               <div className="relative">
                 <div className="bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl p-8 aspect-square flex items-center justify-center shadow-2xl">
-                  <div className="text-white text-center space-y-4">
-                    <Heart className="h-20 w-20 mx-auto opacity-90" />
+                  <div className="text-white text-center space-y-6">
+                    {/* Logo */}
+                    <div className="flex justify-center">
+                      <img
+                        src={logo}
+                        alt="HealthMate AI Logo"
+                        className="w-32 h-32 object-contain filter brightness-0 invert"
+                      />
+                    </div>
                     <h3 className="text-2xl font-bold">HealthMate AI</h3>
                     <p className="opacity-90">Your personal health assistant</p>
                   </div>
                 </div>
-                
+
                 {/* Floating elements */}
                 <div className="absolute -top-4 -left-4 bg-white rounded-xl p-4 shadow-lg border border-emerald-100">
                   <Bell className="h-6 w-6 text-emerald-600" />
@@ -90,30 +99,30 @@ const Home = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { 
-                  step: "1", 
-                  title: "Share Your Health Info", 
+                {
+                  step: "1",
+                  title: "Share Your Health Info",
                   description: "Tell us about your condition and medications",
                   icon: Stethoscope,
                   color: "emerald"
                 },
-                { 
-                  step: "2", 
-                  title: "Get AI Health Plan", 
-                  description: "Receive personalized daily routines and advice",
+                {
+                  step: "2",
+                  title: "Ai Analysis",
+                  description: "Our Ai creates a personalized details",
                   icon: Heart,
                   color: "teal"
                 },
-                { 
-                  step: "3", 
-                  title: "Follow Your Schedule", 
+                {
+                  step: "3",
+                  title: "Get Remainders",
                   description: "Complete tasks with smart reminders",
                   icon: Calendar,
                   color: "cyan"
                 },
-                { 
-                  step: "4", 
-                  title: "Track Progress", 
+                {
+                  step: "4",
+                  title: "Track Progress",
                   description: "Monitor your health journey and improvements",
                   icon: Activity,
                   color: "blue"
@@ -139,88 +148,134 @@ const Home = () => {
         </section>
 
         {/* Features */}
-        <section className="py-20 bg-gradient-to-br from-teal-50 to-emerald-50 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Everything You Need to Stay Healthy
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Comprehensive health management tools powered by artificial intelligence
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Left Feature */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Calendar className="h-6 w-6 text-emerald-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                      Personalized Daily Routine
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                      AI-generated schedules tailored to your specific health condition, 
-                      including medication times, exercises, meals, and rest periods.
-                    </p>
-                    <ul className="space-y-2">
-                      {['Customized exercise plans', 'Medication scheduling', 'Diet recommendations', 'Rest period optimization'].map((item, index) => (
-                        <li key={index} className="flex items-center gap-2 text-emerald-700">
-                          <CheckCircle2 className="h-4 w-4" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
+<section className="py-20 lg:py-28 bg-gradient-to-br from-teal-50 to-emerald-50">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+        Everything You Need to Stay Healthy
+      </h2>
+      <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Comprehensive, AI-powered tools designed for real recovery and long-term wellness.
+      </p>
+    </div>
 
-              {/* Right Feature */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Bell className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                      Smart Medication Reminders
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                      Never miss a dose with intelligent alarms and notifications that 
-                      adapt to your daily routine and provide helpful context.
-                    </p>
-                    <ul className="space-y-2">
-                      {['Timely dose alerts', 'Medication information', 'Side effect monitoring', 'Refill reminders'].map((item, index) => (
-                        <li key={index} className="flex items-center gap-2 text-teal-700">
-                          <CheckCircle2 className="h-4 w-4" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Section */}
-            <div className="text-center mt-16">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-cyan-100 max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Ready to Start Your Health Journey?
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Join thousands of users who have transformed their health management with AI assistance.
-                </p>
-                <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Get Started Today
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </button>
-              </div>
-            </div>
+    {/* Features Grid - 4 balanced cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* Card 1 */}
+      <div className="group bg-white rounded-2xl p-7 shadow-md border border-emerald-100 hover:shadow-xl hover:border-emerald-200 transition-all duration-300">
+        <div className="flex items-start gap-4">
+          <div className="w-11 h-11 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <Calendar className="w-6 h-6 text-emerald-600" />
           </div>
-        </section>
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Daily Routine</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              AI-crafted schedules with medication, exercise, meals, and rest — perfectly timed for you.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {['Custom exercise plans', 'Smart medication timing', 'Diet suggestions', 'Optimal rest alerts'].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-emerald-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="group bg-white rounded-2xl p-7 shadow-md border border-teal-100 hover:shadow-xl hover:border-teal-200 transition-all duration-300">
+        <div className="flex items-start gap-4">
+          <div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <Bell className="w-6 h-6 text-teal-600" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Smart Medication Reminders</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Never miss a dose with adaptive, context-aware alerts and refill notifications.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {['Timely alerts', 'Drug info & interactions', 'Side effect tracking', 'Auto refill reminders'].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-teal-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="group bg-white rounded-2xl p-7 shadow-md border border-emerald-100 hover:shadow-xl hover:border-emerald-200 transition-all duration-300">
+        <div className="flex items-start gap-4">
+          <div className="w-11 h-11 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <Heart className="w-6 h-6 text-emerald-600" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Motivational Support</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Stay encouraged with daily positive messages and milestone celebrations.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {['Daily encouragement', 'Progress celebrations', 'Mood-based support', 'Streak tracking'].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-emerald-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 4 */}
+      <div className="group bg-white rounded-2xl p-7 shadow-md border border-teal-100 hover:shadow-xl hover:border-teal-200 transition-all duration-300">
+        <div className="flex items-start gap-4">
+          <div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify
+
+-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <Activity className="w-6 h-6 text-teal-600" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Progress Tracking</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              See your improvement with beautiful charts, trends, and achievement badges.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {['Health metrics dashboard', 'Visual progress charts', 'Trend analysis', 'Milestone rewards'].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-teal-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Compact CTA */}
+    <div className="mt-20 text-center">
+      <div className="inline-block bg-white rounded-2xl px-10 py-8 shadow-xl border border-cyan-100">
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          Ready to Transform Your Health?
+        </h3>
+        <p className="text-gray-600 mb-6 max-w-md mx-auto">
+          Join thousands already managing their health better — with AI that truly cares.
+        </p>
+        <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-700 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+          Get Started Free
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Footer */}
         <Footer />
