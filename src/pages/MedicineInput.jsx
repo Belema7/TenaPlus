@@ -1,10 +1,10 @@
 import React from 'react'
-
+import LayOut from '../components/LayOut/LayOut'
 const MedicineInput = () => {
   return (
-    <div>
+    <LayOut>
       <p>this is input page</p>
-    </div>
+    </LayOut>
   )
 }
 

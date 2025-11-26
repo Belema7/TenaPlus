@@ -1,10 +1,10 @@
 import React from 'react'
-
+import LayOut from '../components/LayOut/LayOut'
 const Dashboard = () => {
   return (
-    <div>
+    <LayOut>
       <p>this is Dashboard page</p>
-    </div>
+    </LayOut>
   )
 }
 

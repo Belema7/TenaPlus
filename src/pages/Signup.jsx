@@ -1,10 +1,11 @@
 import React from 'react'
+import LayOut from '../components/LayOut/LayOut'
 
 const Signup = () => {
   return (
-    <div>
+    <LayOut>
       <p>This is signup page</p>
-    </div>
+    </LayOut>
   )
 }
 
