@@ -24,7 +24,7 @@ const Footer = () => {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                HealthMate AI
+                TenaPlus
               </span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">

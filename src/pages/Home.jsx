@@ -23,12 +23,7 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-8">
-                <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 w-fit shadow-sm border border-emerald-100">
-                  <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
-                    <Heart className="h-4 w-4 text-white" />
-                  </div>
-                  <span className="text-sm font-medium text-emerald-700">Your AI Health Companion</span>
-                </div>
+               
 
                 <div className="space-y-6">
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
@@ -57,30 +52,16 @@ const Home = () => {
 
               {/* Right Content - Hero Image/Illustration */}
 
-              <div className="relative">
-                <div className="bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl p-8 aspect-square flex items-center justify-center shadow-2xl">
-                  <div className="text-white text-center space-y-6">
-                    {/* Logo */}
-                    <div className="flex justify-center">
-                      <img
-                        src={logo}
-                        alt="HealthMate AI Logo"
-                        className="w-32 h-32 object-contain filter brightness-0 invert"
-                      />
-                    </div>
-                    <h3 className="text-2xl font-bold">HealthMate AI</h3>
-                    <p className="opacity-90">Your personal health assistant</p>
-                  </div>
-                </div>
+<div className="flex items-center justify-center w-full">
+  <img
+    src={logo}
+    alt="TenaPlus"
+    className="w-100 object-contain"
+  />
+</div>
 
-                {/* Floating elements */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-xl p-4 shadow-lg border border-emerald-100">
-                  <Bell className="h-6 w-6 text-emerald-600" />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg border border-emerald-100">
-                  <Activity className="h-6 w-6 text-teal-600" />
-                </div>
-              </div>
+
+
             </div>
           </div>
         </section>
