@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
-
+    
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -40,7 +40,6 @@ const Navbar = () => {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
     { to: '/dashboard', label: 'Dashboard' },
-    { to: '/medicineinput', label: 'Medicine Input' },
   ];
 
   return (
