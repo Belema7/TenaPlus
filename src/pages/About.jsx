@@ -15,6 +15,7 @@ import {
   Activity
 } from 'lucide-react'
 
+
 const About = () => {
   return (
     <LayOut>
@@ -45,7 +46,6 @@ const About = () => {
             </div>
           </div>
         </section>
-
         {/* Our Mission */}
         <section className="py-16 bg-white px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

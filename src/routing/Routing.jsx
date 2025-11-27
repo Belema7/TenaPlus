@@ -8,6 +8,7 @@ import Dashboard from '../pages/Dashboard'
 import MedicineInput from '../pages/MedicineInput'
 import NotFound from '../pages/NotFound'
 import DailyTasks from '../Dashboard/DailyTasks/DailyTasks'
+import AiAssistant from '../Dashboard/AiAssistance/AiAssistant'
 
 const Routing = () => {
   return (
@@ -22,6 +23,7 @@ const Routing = () => {
         <Route index element={<div>Dashboard Home - Add your dashboard content here</div>} />
         <Route path='medicineinput' element={<MedicineInput />} />
         <Route path='tasks' element={<DailyTasks/>} />
+        <Route path='aihelp' element={<AiAssistant/>}/>
       </Route>
 
       <Route path='*' element={<NotFound />} />
