@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Heart, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
+import {
+  Heart,
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
   Instagram,
   ArrowRight
 } from 'lucide-react';
@@ -28,7 +28,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              Your AI-powered health companion for personalized care, smart reminders, 
+              Your AI-powered health companion for personalized care, smart reminders,
               and continuous support on your wellness journey.
             </p>
             <div className="flex space-x-4">
@@ -94,15 +94,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-emerald-400" />
-                <span className="text-gray-300 text-sm">+1 (555) 123-4567</span>
+                <span className="text-gray-300 text-sm">+12519---</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-emerald-400" />
-                <span className="text-gray-300 text-sm">support@healthmate.ai</span>
+                <span className="text-gray-300 text-sm">team2@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-emerald-400" />
-                <span className="text-gray-300 text-sm">123 Health St, Wellness City</span>
+                <span className="text-gray-300 text-sm">Addis Abebe, Ethiopia</span>
               </div>
             </div>
 

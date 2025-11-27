@@ -97,7 +97,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
-      {/* Main content area with responsive margin */}
+      {/* Main content area with responsive margin - FIXED */}
       <div className={`
         min-h-screen transition-all duration-300
         ${sidebarOpen ? 'lg:ml-64' : 'lg:ml-64'}
@@ -106,7 +106,7 @@ const Dashboard = () => {
         <div className="lg:hidden bg-white shadow-sm border-b border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <button
-              onClick={() => setSidebarOpen(true)}
+              onClick={() => setSidebarOpen(!sidebarOpen)}
               className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <Menu size={24} />
@@ -129,26 +129,26 @@ const Dashboard = () => {
             <>
               {/* Welcome Section */}
               <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                   Welcome back! 👋
                 </h1>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm sm:text-base">
                   Here's your health overview for today. Keep up the great work!
                 </p>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
                 {/* Tasks Completed */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-blue-100 rounded-lg">
-                      <CheckCircle2 className="h-6 w-6 text-blue-600" />
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-blue-100 rounded-lg">
+                      <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                     </div>
-                    <TrendingUp className="h-5 w-5 text-green-500" />
+                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{stats.tasksCompleted}</h3>
-                  <p className="text-gray-600 text-sm">Tasks Completed Today</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stats.tasksCompleted}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">Tasks Completed Today</p>
                   <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
                     <div 
                       className="bg-blue-600 h-2 rounded-full transition-all duration-500"
@@ -158,17 +158,17 @@ const Dashboard = () => {
                 </div>
 
                 {/* Medication Adherence */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-green-100 rounded-lg">
-                      <Heart className="h-6 w-6 text-green-600" />
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-green-100 rounded-lg">
+                      <Heart className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
                     </div>
-                    <span className={`text-lg font-bold ${getProgressColor(stats.medicationAdherence)}`}>
+                    <span className={`text-base sm:text-lg font-bold ${getProgressColor(stats.medicationAdherence)}`}>
                       {stats.medicationAdherence}%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{stats.medicationAdherence}%</h3>
-                  <p className="text-gray-600 text-sm">Medication Adherence</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stats.medicationAdherence}%</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">Medication Adherence</p>
                   <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
                     <div 
                       className="bg-green-600 h-2 rounded-full transition-all duration-500"
@@ -178,17 +178,17 @@ const Dashboard = () => {
                 </div>
 
                 {/* Daily Progress */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-purple-100 rounded-lg">
-                      <Activity className="h-6 w-6 text-purple-600" />
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-purple-100 rounded-lg">
+                      <Activity className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
                     </div>
-                    <span className={`text-lg font-bold ${getProgressColor(stats.dailyProgress)}`}>
+                    <span className={`text-base sm:text-lg font-bold ${getProgressColor(stats.dailyProgress)}`}>
                       {stats.dailyProgress}%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{stats.dailyProgress}%</h3>
-                  <p className="text-gray-600 text-sm">Daily Progress</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stats.dailyProgress}%</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">Daily Progress</p>
                   <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
                     <div 
                       className="bg-purple-600 h-2 rounded-full transition-all duration-500"
@@ -198,20 +198,20 @@ const Dashboard = () => {
                 </div>
 
                 {/* Current Streak */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-orange-100 rounded-lg">
-                      <Calendar className="h-6 w-6 text-orange-600" />
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-orange-100 rounded-lg">
+                      <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
                     </div>
-                    <TrendingUp className="h-5 w-5 text-green-500" />
+                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{stats.streak} days</h3>
-                  <p className="text-gray-600 text-sm">Current Streak</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stats.streak} days</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">Current Streak</p>
                   <div className="mt-2 flex items-center gap-1">
                     {[...Array(7)].map((_, i) => (
                       <div
                         key={i}
-                        className={`w-3 h-3 rounded-full ${
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
                           i < stats.streak ? 'bg-orange-500' : 'bg-gray-300'
                         }`}
                       ></div>
@@ -221,30 +221,30 @@ const Dashboard = () => {
               </div>
 
               {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
                 {/* Recent Activity */}
-                <div className="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Clock className="h-5 w-5 text-blue-600" />
+                <div className="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 flex items-center gap-2">
+                      <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                       Recent Activity
                     </h2>
                     <button 
                       onClick={() => navigate('/dashboard/tasks')}
-                      className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                      className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
                     >
                       View All
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
                     </button>
                   </div>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {recentActivity.map((activity) => (
-                      <div key={activity.id} className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                      <div key={activity.id} className="flex items-center gap-3 sm:gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
                         {getActivityIcon(activity.type)}
                         <div className="flex-1">
-                          <p className="text-gray-900 font-medium">{activity.action}</p>
-                          <p className="text-sm text-gray-500">{activity.time}</p>
+                          <p className="text-gray-900 font-medium text-sm sm:text-base">{activity.action}</p>
+                          <p className="text-gray-500 text-xs sm:text-sm">{activity.time}</p>
                         </div>
                       </div>
                     ))}
@@ -252,19 +252,19 @@ const Dashboard = () => {
                 </div>
 
                 {/* Upcoming Tasks */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-green-600" />
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6">
+                  <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
+                    <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                     Upcoming Tasks
                   </h2>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {upcomingTasks.map((task) => (
-                      <div key={task.id} className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                      <div key={task.id} className="flex items-center gap-2 sm:gap-3 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
                         {getTaskIcon(task.type)}
                         <div className="flex-1">
-                          <p className="text-gray-900 font-medium">{task.title}</p>
-                          <p className="text-sm text-gray-500 flex items-center gap-1">
+                          <p className="text-gray-900 font-medium text-sm sm:text-base">{task.title}</p>
+                          <p className="text-gray-500 text-xs sm:text-sm flex items-center gap-1">
                             <Clock className="h-3 w-3" />
                             {task.time}
                           </p>
@@ -275,7 +275,7 @@ const Dashboard = () => {
 
                   <button 
                     onClick={() => navigate('/dashboard/tasks')}
-                    className="w-full mt-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+                    className="w-full mt-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
                   >
                     View Full Schedule
                   </button>
@@ -283,52 +283,52 @@ const Dashboard = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h2>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Quick Actions</h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   <button 
                     onClick={() => navigate('/dashboard/medicineinput')}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all text-left group"
+                    className="p-3 sm:p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all text-left group"
                   >
-                    <div className="p-2 bg-blue-100 rounded-lg w-fit mb-3 group-hover:bg-blue-200 transition-colors">
-                      <Pill className="h-6 w-6 text-blue-600" />
+                    <div className="p-2 bg-blue-100 rounded-lg w-fit mb-2 sm:mb-3 group-hover:bg-blue-200 transition-colors">
+                      <Pill className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Add Medication</h3>
-                    <p className="text-sm text-gray-600">Update your medication list</p>
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">Add Medication</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Update your medication list</p>
                   </button>
 
                   <button 
                     onClick={() => navigate('/dashboard/tasks')}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition-all text-left group"
+                    className="p-3 sm:p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition-all text-left group"
                   >
-                    <div className="p-2 bg-green-100 rounded-lg w-fit mb-3 group-hover:bg-green-200 transition-colors">
-                      <CheckCircle2 className="h-6 w-6 text-green-600" />
+                    <div className="p-2 bg-green-100 rounded-lg w-fit mb-2 sm:mb-3 group-hover:bg-green-200 transition-colors">
+                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-green-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">View Tasks</h3>
-                    <p className="text-sm text-gray-600">Check your daily routine</p>
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">View Tasks</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Check your daily routine</p>
                   </button>
 
                   <button 
                     onClick={() => navigate('/dashboard/progress')}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-purple-300 hover:bg-purple-50 transition-all text-left group"
+                    className="p-3 sm:p-4 border border-gray-200 rounded-lg hover:border-purple-300 hover:bg-purple-50 transition-all text-left group"
                   >
-                    <div className="p-2 bg-purple-100 rounded-lg w-fit mb-3 group-hover:bg-purple-200 transition-colors">
-                      <TrendingUp className="h-6 w-6 text-purple-600" />
+                    <div className="p-2 bg-purple-100 rounded-lg w-fit mb-2 sm:mb-3 group-hover:bg-purple-200 transition-colors">
+                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-purple-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Progress</h3>
-                    <p className="text-sm text-gray-600">View your health journey</p>
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">Progress</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">View your health journey</p>
                   </button>
 
                   <button 
                     onClick={() => navigate('/dashboard/aihelp')}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-orange-300 hover:bg-orange-50 transition-all text-left group"
+                    className="p-3 sm:p-4 border border-gray-200 rounded-lg hover:border-orange-300 hover:bg-orange-50 transition-all text-left group"
                   >
-                    <div className="p-2 bg-orange-100 rounded-lg w-fit mb-3 group-hover:bg-orange-200 transition-colors">
-                      <Users className="h-6 w-6 text-orange-600" />
+                    <div className="p-2 bg-orange-100 rounded-lg w-fit mb-2 sm:mb-3 group-hover:bg-orange-200 transition-colors">
+                      <Users className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-orange-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">AI Assistant</h3>
-                    <p className="text-sm text-gray-600">Get health advice</p>
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">AI Assistant</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Get health advice</p>
                   </button>
                 </div>
               </div>
