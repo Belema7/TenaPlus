@@ -7,18 +7,26 @@ import Signup from '../pages/Signup'
 import Dashboard from '../pages/Dashboard'
 import MedicineInput from '../pages/MedicineInput'
 import NotFound from '../pages/NotFound'
+import DailyTasks from '../Dashboard/DailyTasks/DailyTasks'
+
 const Routing = () => {
   return (
     <Routes>
-        <Route path='/'element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/medicineinput' element={<MedicineInput/>}/>
-        <Route path='*' element={<NotFound/>}/>
+      <Route path='/' element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<Signup />} />
+
+      {/* Dashboard with nested routes */}
+      <Route path='/dashboard' element={<Dashboard />}>
+        <Route index element={<div>Dashboard Home - Add your dashboard content here</div>} />
+        <Route path='medicineinput' element={<MedicineInput />} />
+        <Route path='tasks' element={<DailyTasks/>} />
+      </Route>
+
+      <Route path='*' element={<NotFound />} />
     </Routes>
-  )   
+  )
 }
 
 export default Routing
