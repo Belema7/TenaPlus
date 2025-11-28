@@ -28,10 +28,10 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     // Close sidebar when route changes on mobile
     useEffect(() => {
-        if (window.innerWidth < 1024) {
+        if (window.innerWidth < 1024 && isOpen) {
             onClose();
         }
-    }, [location.pathname, onClose]);
+    }, [location.pathname, isOpen, onClose]);
 
     return (
         <>
@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             {/* Sidebar */}
             <div className={`
                 w-64 h-screen bg-emerald-900 text-white p-6 flex flex-col justify-between fixed left-0 top-0 z-50
-                transform transition-transform duration-300 ease-in-out
+                transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
             `}>
                 {/* Logo and Close Button */}
@@ -82,6 +82,12 @@ const Sidebar = ({ isOpen, onClose }) => {
                                 key={item.to}
                                 to={item.to}
                                 end={item.end}
+                                onClick={() => {
+                                    // Close sidebar on mobile when link is clicked
+                                    if (window.innerWidth < 1024) {
+                                        onClose();
+                                    }
+                                }}
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
                                         isActive
@@ -101,6 +107,11 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <div>
                     <NavLink
                         to="/dashboard/settings"
+                        onClick={() => {
+                            if (window.innerWidth < 1024) {
+                                onClose();
+                            }
+                        }}
                         className={({ isActive }) =>
                             `flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
                                 isActive
