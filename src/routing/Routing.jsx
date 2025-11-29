@@ -9,6 +9,7 @@ import MedicineInput from '../pages/MedicineInput'
 import NotFound from '../pages/NotFound'
 import DailyTasks from '../Dashboard/DailyTasks/DailyTasks'
 import AiAssistant from '../Dashboard/AiAssistance/AiAssistant.jsx'   // <-- FIXED
+import Progress from '../Dashboard/Progress/Progress.jsx'
 
 
 
@@ -27,6 +28,7 @@ const Routing = () => {
         <Route path='medicineinput' element={<MedicineInput />} />
         <Route path='tasks' element={<DailyTasks />} />
         <Route path='aihelp' element={<AiAssistant />} />
+        <Route path='progress' element={<Progress/>}/>
       </Route>
 
       <Route path='*' element={<NotFound />} />
