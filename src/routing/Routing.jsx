@@ -4,7 +4,7 @@ import { DataContext } from '../components/DataProvider/DataProvider'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import Login from '../pages/Login'
-import Signup from '../pages/Signup'
+// import Signup from '../pages/Signup'
 import Dashboard from '../pages/Dashboard'
 import MedicineInput from '../pages/MedicineInput'
 import NotFound from '../pages/NotFound'
@@ -23,10 +23,10 @@ const Routing = () => {
         path='/login' 
         element={!user ? <Login /> : <Navigate to="/dashboard" replace />} 
       />
-      <Route 
+      {/* <Route 
         path='/signup' 
         element={!user ? <Signup /> : <Navigate to="/dashboard" replace />} 
-      />
+      /> */}
 
       {/* Protected Dashboard Routes */}
       <Route 

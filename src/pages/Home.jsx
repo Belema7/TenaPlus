@@ -12,6 +12,7 @@ import {
   PlayCircle,
   CheckCircle2
 } from 'lucide-react'
+import { Link, Links } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -39,14 +40,18 @@ const Home = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/login">
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Try It Now
                     <ArrowRight className="h-5 w-5 ml-2" />
                   </button>
-                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-200 text-emerald-700 hover:bg-emerald-50 font-semibold rounded-xl transition-all duration-200">
+                  </Link>
+                  <Link to="/about">  
+                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-200 text-emerald-700 hover:bg-emerald-50 font-semibold rounded-xl transition-all duration-200 cursor-pointer">
                     <PlayCircle className="h-5 w-5 mr-2" />
                     Learn More
                   </button>
+                  </Link>
                 </div>
               </div>
 
@@ -78,7 +83,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   step: "1",
@@ -96,13 +101,21 @@ const Home = () => {
                 },
                 {
                   step: "3",
+                  title: "Daily Routine",
+                  description: "Receive your custom daily health plan",
+                  icon: PlayCircle,
+                  color: "cyan"
+
+                },
+                {
+                  step: "4",
                   title: "Get Remainders",
                   description: "Complete tasks with smart reminders",
                   icon: Calendar,
                   color: "cyan"
                 },
                 {
-                  step: "4",
+                  step: "5",
                   title: "Track Progress",
                   description: "Monitor your health journey and improvements",
                   icon: Activity,
@@ -248,10 +261,12 @@ const Home = () => {
         <p className="text-gray-600 mb-6 max-w-md mx-auto">
           Join thousands already managing their health better — with AI that truly cares.
         </p>
+        <Link to="/login">
         <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-700 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
           Get Started Free
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
+        </Link>
       </div>
     </div>
   </div>

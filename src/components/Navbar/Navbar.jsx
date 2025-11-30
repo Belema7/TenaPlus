@@ -16,35 +16,34 @@ const Navbar = () => {
 
   // Reusable class generators with health colors
   const navLinkClasses = ({ isActive }) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-      isActive
-        ? 'bg-emerald-500 text-white shadow-lg'
-        : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
-    }`;
+  `px-3 py-2 text-sm font-medium transition-all duration-200 border-b-2 ${
+    isActive
+      ? 'border-emerald-500 text-emerald-800'
+      : 'border-transparent text-emerald-700 hover:border-emerald-500 hover:text-emerald-800'
+  }`;
+
+
 
   const mobileNavLinkClasses = ({ isActive }) =>
-    `block px-4 py-3 text-base font-medium rounded-md transition-colors ${
-      isActive
-        ? 'bg-emerald-500 text-white'
-        : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
+    `block px-4 py-3 text-base font-medium rounded-md transition-colors ${isActive
+      ? 'bg-emerald-500 text-white'
+      : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
     }`;
 
   const authButtonClasses = ({ isActive }) =>
-    `px-6 py-2 rounded-md text-sm font-medium border transition-all duration-200 ${
-      isActive
-        ? 'text-emerald-700 border-emerald-500 bg-emerald-50'
-        : 'text-emerald-600 border-emerald-300 hover:text-emerald-800 hover:border-emerald-400 hover:bg-emerald-50'
+    `px-6 py-2 rounded-md text-sm font-medium border transition-all duration-200 ${isActive
+      ? 'text-emerald-700 border-emerald-500 bg-emerald-50'
+      : 'text-emerald-600 border-emerald-300 hover:text-emerald-800 hover:border-emerald-400 hover:bg-emerald-50'
     }`;
 
   const signupButtonClasses = ({ isActive }) =>
-    `px-6 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white border border-emerald-400 hover:from-emerald-600 hover:to-teal-600 shadow-md transition-all duration-200 ${
-      isActive ? 'ring-2 ring-emerald-300 ring-opacity-60' : ''
+    `px-6 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white border border-emerald-400 hover:from-emerald-600 hover:to-teal-600 shadow-md transition-all duration-200 ${isActive ? 'ring-2 ring-emerald-300 ring-opacity-60' : ''
     }`;
 
   const navItems = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
-    { to: '/dashboard', label: 'Dashboard' },
+    // { to: '/dashboard', label: 'Dashboard' },
   ];
 
   return (
@@ -74,14 +73,15 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="flex items-center space-x-4 ml-10">
-              <NavLink to="/login" className={authButtonClasses}>
-                Login
-              </NavLink>
-              <NavLink to="/signup" className={signupButtonClasses}>
-                Sign Up
+            <div className="flex items-center space-x-4 ml-1">
+              <NavLink
+                to="/login"
+                className={`${authButtonClasses} bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors`}
+              >
+                Get Started
               </NavLink>
             </div>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,9 +106,8 @@ const Navbar = () => {
       {/* Mobile Menu - Smooth Animation */}
       <div
         id="mobile-menu"
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <div className="px-4 pt-4 pb-6 space-y-1 bg-gradient-to-b from-emerald-50 to-teal-50 border-t border-emerald-200">
           {navItems.map((item) => (
@@ -131,13 +130,7 @@ const Navbar = () => {
             >
               Login
             </NavLink>
-            <NavLink
-              to="/signup"
-              onClick={closeMobileMenu}
-              className="block px-4 py-3 text-base font-medium text-white text-center bg-gradient-to-r from-emerald-500 to-teal-500 rounded-md border border-emerald-400 hover:from-emerald-600 hover:to-teal-600 shadow-md transition-all"
-            >
-              Sign Up
-            </NavLink>
+
           </div>
         </div>
       </div>
