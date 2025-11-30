@@ -123,13 +123,14 @@ const Navbar = () => {
           ))}
 
           <div className="pt-4 space-y-3 border-t border-emerald-200 mt-4">
-            <NavLink
-              to="/login"
-              onClick={closeMobileMenu}
-              className="block px-4 py-3 text-base font-medium text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-md text-center border border-emerald-300 transition-colors"
-            >
-              Login
-            </NavLink>
+            <div className="flex items-center space-x-4 ml-1">
+              <NavLink
+                to="/login"
+                className={`${authButtonClasses} bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors`}
+              >
+                Get Started
+              </NavLink>
+            </div>
 
           </div>
         </div>
