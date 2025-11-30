@@ -10,7 +10,18 @@ import {
   ArrowLeft,
   Smartphone
 } from 'lucide-react'
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [loading, setLoading] = useState({
+  signIn: false,
+  signUp: false,
+});
+const [error, setError] = useState("");
 import LayOut from '../components/LayOut/LayOut'
+
+
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -18,6 +29,7 @@ const Login = () => {
     email: '',
     password: ''
   })
+
 
   const handleChange = (e) => {
     setFormData({
