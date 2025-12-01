@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from '../Utility/firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { DataContext } from '../components/DataProvider/DataProvider';
@@ -14,37 +14,45 @@ const Login = () => {
 
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
+  
+  const location = useLocation();
+  const redirect = location.state?.redirect || "/";
+  const msg = location.state?.msg;
 
-  // Sign In
   const handleSignIn = async (e) => {
     e.preventDefault();
-    setLoading({ ...loading, signIn: true });
+    setLoading({ signIn: true, signUp: false });
     setError("");
+
     try {
       const userInfo = await signInWithEmailAndPassword(auth, email, password);
       dispatch({ type: Type.SET_USER, user: userInfo.user });
-      setEmail(""); setPassword("");
-      navigate("/dashboard/tasks");
+
+      setEmail("");
+      setPassword("");
+      navigate(redirect, { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading({ ...loading, signIn: false });
+      setLoading({ signIn: false, signUp: false });
     }
   };
 
-  // Sign Up
   const handleSignUp = async () => {
-    setLoading({ ...loading, signUp: true });
+    setLoading({ signIn: false, signUp: true });
     setError("");
+
     try {
       const userInfo = await createUserWithEmailAndPassword(auth, email, password);
       dispatch({ type: Type.SET_USER, user: userInfo.user });
-      setEmail(""); setPassword("");
-      navigate("/dashboard/tasks");
+
+      setEmail("");
+      setPassword("");
+      navigate(redirect, { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading({ ...loading, signUp: false });
+      setLoading({ signIn: false, signUp: false });
     }
   };
 
@@ -69,6 +77,14 @@ const Login = () => {
             <span className="text-2xl font-bold text-gray-900">TenaPlus</span>
           </div>
         </Link>
+        { msg && (
+    <small>
+        <span className="text-xs text-blue-600">
+            {msg}
+        </span>
+    </small>
+)}
+
 
         {/* Form */}
         <div className="border border-gray-200 rounded-lg p-5 bg-white">

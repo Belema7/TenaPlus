@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
+import { DataContext } from '../DataProvider/DataProvider';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [{user}] = useContext(DataContext)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -74,12 +76,19 @@ const Navbar = () => {
 
             {/* Desktop Auth Buttons */}
             <div className="flex items-center space-x-4 ml-1">
-              <NavLink
+              {!user? ( <NavLink
                 to="/login"
                 className={`${authButtonClasses} bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors`}
               >
                 Get Started
-              </NavLink>
+              </NavLink>): (
+                <NavLink
+                  to="/dashboard"
+                  className={`${signupButtonClasses} px-4 py-2 rounded-lg transition-colors`}
+                >
+                  Dashboard
+                </NavLink>
+                )}
             </div>
 
           </div>

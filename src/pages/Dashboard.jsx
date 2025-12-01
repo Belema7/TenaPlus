@@ -95,11 +95,13 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <Sidebar 
-    isOpen={sidebarOpen} 
-    onClose={() => setSidebarOpen(true)} 
+   <Sidebar 
+  isOpen={sidebarOpen} 
+  onClose={() => setSidebarOpen(false)}  // <-- CLOSE sidebar
 />
 
+
+ 
       
       {/* Main content area with responsive margin - FIXED */}
       <div className={`
@@ -123,8 +125,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
         <DashboardHeader />
+
+       
         
         {/* Dashboard Content */}
         <div className="p-4 lg:p-6">

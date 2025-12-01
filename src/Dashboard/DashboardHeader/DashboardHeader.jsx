@@ -15,15 +15,28 @@ const DashboardHeader = () => {
   const navigate = useNavigate();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      dispatch({ type: Type.SET_USER, user: null });
-      navigate('/');
-    } catch (err) {
-      console.error('Sign out error:', err);
-    }
-  };
+ const handleSignOut = async () => {
+  try {
+    await signOut(auth);
+    // Dispatch first to clear user state
+    dispatch({ type: Type.SET_USER, user: null });
+    
+    // Add a small delay to ensure state updates before navigation
+    setTimeout(() => {
+      navigate('/login', { replace: true });
+    }, 100);
+    
+  } catch (err) {
+    console.error('Sign out error:', err);
+    // Force navigation even on error
+    navigate('/login');
+  }
+};
+
+const handleMenuShow= () => {
+  setShowMobileMenu((showMobileMenu)=> !showMobileMenu);
+}
+
 
   return (
     <>
@@ -100,7 +113,7 @@ const DashboardHeader = () => {
               </div>
             ) : (
               <Link
-                to="/auth"
+                to="/"
                 className="flex items-center gap-2 bg-gray-800/70 rounded-xl px-4 py-3 hover:bg-gray-800 transition cursor-pointer"
               >
                 <User className="w-6 h-6 text-white" />
@@ -114,7 +127,7 @@ const DashboardHeader = () => {
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2 hover:bg-gray-700 rounded-sm"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={handleMenuShow}
             >
               <Menu size={20} className="text-white" />
             </button>
@@ -148,7 +161,7 @@ const DashboardHeader = () => {
               </button>
             </div>
           ) : (
-            <Link to="/auth" className="block py-2 px-3 rounded hover:bg-gray-700">
+            <Link to="/" className="block py-2 px-3 rounded hover:bg-gray-700">
               Sign In / Sign Up
             </Link>
           )}
@@ -159,3 +172,7 @@ const DashboardHeader = () => {
 };
 
 export default DashboardHeader;
+
+
+
+
