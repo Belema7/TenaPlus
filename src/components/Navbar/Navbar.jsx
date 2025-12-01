@@ -47,11 +47,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-emerald-50 to-teal-50 shadow-lg border-b border-emerald-200 sticky top-0 z-50">
+    <nav className="bg-linear-to-r from-emerald-50 to-teal-50 shadow-lg border-b border-emerald-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link to="/" onClick={closeMobileMenu} aria-label="Go to homepage">
               <Logo />
             </Link>
