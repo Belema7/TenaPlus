@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from '../Utility/firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
 import { DataContext } from '../components/DataProvider/DataProvider';
 import { Type } from '../Utility/action.type';
 import logo from '../assets/images/logo.jpg';
@@ -25,6 +25,8 @@ const Login = () => {
     setError("");
 
     try {
+      // Use session persistence so the auth session ends when the browser is closed
+      await setPersistence(auth, browserSessionPersistence);
       const userInfo = await signInWithEmailAndPassword(auth, email, password);
       dispatch({ type: Type.SET_USER, user: userInfo.user });
 
@@ -43,6 +45,8 @@ const Login = () => {
     setError("");
 
     try {
+      // Use session persistence for newly created accounts
+      await setPersistence(auth, browserSessionPersistence);
       const userInfo = await createUserWithEmailAndPassword(auth, email, password);
       dispatch({ type: Type.SET_USER, user: userInfo.user });
 

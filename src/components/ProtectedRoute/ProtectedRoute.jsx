@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children, msg, redirect }) => {
   if (!user) {
     return (
       <Navigate 
-        to="/auth" 
+        to="/login" 
         replace 
         state={{
           msg,

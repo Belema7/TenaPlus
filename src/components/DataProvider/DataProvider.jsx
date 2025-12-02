@@ -12,8 +12,4 @@ export const DataProvider = ({ children, reducer, initialState }) => {
     )
 }
 
-export const Type = {
-    SET_USER: "SET_USER",
-    SET_LOADING: "SET_LOADING", 
-    SET_ERROR: "SET_ERROR"
-}
+// Note: Action types are exported from `src/Utility/action.type.js`.
