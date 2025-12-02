@@ -132,16 +132,27 @@ const Navbar = () => {
           ))}
 
           <div className="pt-4 space-y-3 border-t border-emerald-200 mt-4">
-            <div className="flex items-center space-x-4 ml-1">
-              <NavLink
-                to="/login"
-                className={`${authButtonClasses} bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors`}
-              >
-                Get Started
-              </NavLink>
-            </div>
+  <div className="flex items-center space-x-4 ml-1">
+    {!user ? (
+      <NavLink
+        to="/login"
+        onClick={closeMobileMenu}
+        className={`${authButtonClasses} bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors`}
+      >
+        Get Started
+      </NavLink>
+    ) : (
+      <NavLink
+        to="/dashboard"
+        onClick={closeMobileMenu}
+        className={`${signupButtonClasses} px-4 py-2 rounded-lg transition-colors`}
+      >
+        Dashboard
+      </NavLink>
+    )}
+  </div>
+</div>
 
-          </div>
         </div>
       </div>
     </nav>
